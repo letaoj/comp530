@@ -24,6 +24,13 @@ void printOutput(char output[], int length) {
 	printf("\n");
 }
 
+void decideToPrint(int count, char * output) {
+	if (count == MAX_LINE_SIZE) {
+		printOutput(output, MAX_LINE_SIZE);
+		count = 0;
+	}
+}
+
 int main() {
 	int count = 0;
 	char output[MAX_LINE_SIZE];
@@ -41,10 +48,7 @@ int main() {
 					output[count++] = '^';
 				} else {
 					output[count++] = '*';
-					if (count == MAX_LINE_SIZE) {
-						printOutput(output, MAX_LINE_SIZE);
-						count = 0;
-					}
+					decideToPrint(count, output);
 					if (new == '\n' || new == '\r') {
 						// replace the carriage return with space
 						output[count++] = ' ';
@@ -52,15 +56,13 @@ int main() {
 						output[count++] = new;
 					}
 				}
+			} else {
+				break;
 			}
 		} else {
 			output[count++] = new;
 		}
-		if (count == MAX_LINE_SIZE) {
-			// counted max number allowed in a line, print it
-			printOutput(output, MAX_LINE_SIZE);
-			count = 0;
-		}
+		decideToPrint(count, output);
 		new = getchar();
 	}
 }
