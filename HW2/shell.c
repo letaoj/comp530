@@ -1,11 +1,11 @@
 /*
- * I finished this assginment under then honor code and I did not share my
- * code with others.
+ * Author: Letao Jiang
+ * Login: jiang
+ * ID: 720425082
  *
- */
-
-/*
- *  A basic shell can read from standard input, parse the input and execute the command.
+ * Honor code pledge: I finished this assginment by myself and did not get help from inappropriate way.
+ *
+ * A basic shell can read from standard input, parse the input and execute the command.
  *
  */
 

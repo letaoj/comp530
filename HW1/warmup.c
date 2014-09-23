@@ -1,6 +1,11 @@
 /*
- * I finished this assginment under then honor code and I did not share my
- * code with others.
+ * Author: Letao Jiang
+ * Login: jiang
+ * ID: 720425082
+ *
+ * Honor code pledge: I finished this assginment by myself and did not get help from inappropriate way.
+ *
+ * This is a simple program that can take input from user and print lines with 80 characters
  *
  */
 
