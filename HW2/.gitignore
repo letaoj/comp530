@@ -1,13 +1,1 @@
-# ignore all bin directories
-# matches "bin" in any subfolder
-bin/
 /Debug/
-
-# matches "metadata" in any subfolder
-.metadata
-
-# ignore all target directories
-target/
-
-# ignore all files ending with ~
-*~ 
