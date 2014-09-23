@@ -6,7 +6,6 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include "warmup.h"
 
 #define MAX_LINE_SIZE 80
 
