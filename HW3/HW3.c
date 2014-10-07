@@ -17,7 +17,6 @@
 #include "buffer.h"
 
 // Output-related defaults (stream, message, shared value length)
-#define MAX_LINE_SIZE 80
 #define ASTERISK '*'
 #define CARET '^'
 #define BLANK ' '
@@ -89,6 +88,9 @@ int main() {
 	return 0;
 }
 
+/*
+ *  Take the input from standard input and put them into the input buffer
+ */
 void *input_thread(void *state) {
 	ThreadInit *init = state;
 	char c;
@@ -104,6 +106,9 @@ void *input_thread(void *state) {
 	return NULL;
 }
 
+/*
+ * process the input and replace all the carriage to blank
+ */
 void *carriage_processing_thread(void *state) {
 	ThreadInit *init = (ThreadInit *) state;
 	char c;
@@ -121,6 +126,9 @@ void *carriage_processing_thread(void *state) {
 	return NULL;
 }
 
+/*
+ * process the input and handler the *.
+ */
 void *asterisks_processing_thread(void *state) {
 	ThreadInit *init = state;
 	char c;
@@ -149,6 +157,9 @@ void *asterisks_processing_thread(void *state) {
 	return NULL;
 }
 
+/*
+ * Output to the standard output
+ */
 void *output_thread(void *state) {
 	ThreadInit *init = state;
 	int count = 0;
@@ -156,13 +167,11 @@ void *output_thread(void *state) {
 	char line[MAX_LINE_SIZE + 1];
 
 	while ((c = remoove(init->in)) != EOF) {
-		line[count] = c;
-		if (count == MAX_LINE_SIZE - 1) {
-			line[MAX_LINE_SIZE] = '\0';
+		line[count++] = c;
+		if (count == MAX_LINE_SIZE) {
+			line[count] = '\0';
 			printf("%s\n", line);
 			count = 0;
-		} else {
-			count++;
 		}
 	}
 

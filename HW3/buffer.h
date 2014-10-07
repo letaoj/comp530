@@ -1,7 +1,5 @@
 #include "semaphore.h"
 
-#define MAX_LINE_SIZE 80
-
 //buffer struct
 typedef struct {
 	int nextIn;

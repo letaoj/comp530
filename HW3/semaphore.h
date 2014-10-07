@@ -1,5 +1,7 @@
 #include "st.h"
 
+#define MAX_LINE_SIZE 80
+
 typedef struct {
 	int value;
 	st_cond_t sem_queue;
